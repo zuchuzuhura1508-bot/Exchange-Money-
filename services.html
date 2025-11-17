@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Uwekezaji — Hatua 3</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <header>
+    <h2>Zuchu Exchange System</h2>
+  </header>
+
+  <div class="container">
+    <h3>Chagua Kiwango cha Uwekezaji</h3>
+    <p>
+      Yafuatao ni mchakato na orodha ya uwekezaji. Tafadhali chagua kiwango cha uwekezaji unachoweza kumudu.  
+      Hizi ni viwango vya uwekezaji.  
+      <br><br>
+      Kwa mfano, ukiwekeza Tsh 25,000, unapokea Tsh 200,000.
+    </p>
+    
+    <form>
+      <!-- Investment Options -->
+      <label for="investment">Chagua Kiwango cha Uwekezaji</label>
+      <select id="investment" name="investment" required onchange="saveInvestment()">
+        <option value="">-- Chagua --</option>
+        <option value="200000">Tsh 25,000 - Tsh 200,000</option>
+        <option value="300000">Tsh 35,000 - Tsh 300,000</option>
+        <option value="400000">Tsh 45,000 - Tsh 400,000</option>
+        <option value="500000">Tsh 55,000 - Tsh 500,000</option>
+        <option value="600000">Tsh 65,000 - Tsh 600,000</option>
+        <option value="700000">Tsh 75,000 - Tsh 700,000</option>
+      </select>
+
+      <div class="nav-buttons">
+        <button id="backBtn">← Kurudi</button>
+        <button id="nextBtn" onclick="goToStep4()">Endelea →</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    // Save the selected investment amount to localStorage
+    function saveInvestment() {
+      const investmentAmount = document.getElementById('investment').value;
+      localStorage.setItem('investment', investmentAmount);
+    }
+
+    // Go to Step 4 and pass the investment selection
+    function goToStep4() {
+      // Make sure that the investment is selected before proceeding
+      const investmentAmount = document.getElementById('investment').value;
+      if (investmentAmount) {
+        localStorage.setItem('investment', investmentAmount); // Store the selection again just in case
+        window.location.href = 'contact.html'; // Navigate to Step 4
+      } else {
+        alert("Tafadhali chagua kiwango cha uwekezaji.");
+      }
+    }
+  </script>
+
+</body>
+</html>

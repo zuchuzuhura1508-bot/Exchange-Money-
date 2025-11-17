@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Jinsi Ya Kufanya Malipo Yako</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <header>
+    <h2>Zuchu Exchange System</h2>
+  </header>
+
+  <div class="container">
+    <h3>Maelezo ya Kufanya Malipo Yako na Kupokea Booster Lako</h3>
+
+    <p>
+      Fuata maelezo haya ili ufanye malipo yako. Malipo yafanywea kwenye nambari rasmi ya katibu, <strong>NEEMA DOTTO MABULA</strong>.  
+      <br><br>
+      Baada ya kufanya malipo yako, utapokea ofa yako ya <strong><span id="offer-amount">Tsh 200,000</span></strong> baada ya dakika tano.  
+      Utapokea ofa yako kwenye laini yako, kisha utapigiwa simu ili uweze kuthibitisha.
+    </p>
+    
+    <h4>Maelezo ya Malipo</h4>
+    <ul>
+      <li><strong>Nambari Ya Malipo:</strong> 0792164260</li>
+      <li><strong>Jina:</strong> NEEMA DOTTO MABULA</li>
+      <li><strong>Mtandao:</strong> Vodacom</li>
+      <li><strong>Kiasi:</strong> <span id="payment-amount">Tsh 25,000</span></li>
+    </ul>
+
+    <p>
+      Thibitisha nambari hii ili usije ukakosea. Baada ya kufanya malipo, tafadhali subiri dakika tano ili upokee ofa yako.
+    </p>
+
+    <div class="nav-buttons">
+      <button id="backBtn">← Kurudi</button>
+      <button id="submitBtn">Thibitisha Malipo</button>
+    </div>
+  </div>
+
+  <script>
+    // Step 4 - Dynamically set Kiasi (payment amount) and Offer amount based on Step 3 investment range
+    document.addEventListener('DOMContentLoaded', function () {
+      // Retrieve the selected investment range from Step 3 (stored in localStorage)
+      const investmentAmount = localStorage.getItem('investment') || '200000'; // Default to Tsh 200,000 if no selection
+
+      // Determine the corresponding payment amount (Kiasi) and Offer amount based on the selected investment
+      let paymentAmount = '';
+      let offerAmount = '';
+
+      if (investmentAmount === '200000') {
+        paymentAmount = 'Tsh 25,000';
+        offerAmount = 'Tsh 200,000';
+      } else if (investmentAmount === '300000') {
+        paymentAmount = 'Tsh 35,000';
+        offerAmount = 'Tsh 300,000';
+      } else if (investmentAmount === '400000') {
+        paymentAmount = 'Tsh 45,000';
+        offerAmount = 'Tsh 400,000';
+      } else if (investmentAmount === '500000') {
+        paymentAmount = 'Tsh 55,000';
+        offerAmount = 'Tsh 500,000';
+      } else if (investmentAmount === '600000') {
+        paymentAmount = 'Tsh 65,000';
+        offerAmount = 'Tsh 600,000';
+      } else if (investmentAmount === '700000') {
+        paymentAmount = 'Tsh 75,000';
+        offerAmount = 'Tsh 700,000';
+      } else {
+        paymentAmount = 'Tsh 25,000'; // Default payment if no valid selection
+        offerAmount = 'Tsh 200,000'; // Default offer if no valid selection
+      }
+
+      // Display the corresponding payment amount (Kiasi) and offer amount
+      document.getElementById('payment-amount').textContent = paymentAmount;
+      document.getElementById('offer-amount').textContent = offerAmount;
+    });
+  </script>
+
+</body>
+</html>
